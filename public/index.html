@@ -13,7 +13,24 @@
     <script defer src="/__/firebase/7.15.0/firebase-messaging.js"></script>
     <script defer src="/__/firebase/7.15.0/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-analytics.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyCgTh0ARTjETrSmgOfTWeV8y3851H-9abU',
+        authDomain: 'test-8af68.firebaseapp.com',
+        databaseURL: 'https://test-8af68.firebaseio.com',
+        projectId: 'test-8af68',
+        storageBucket: 'test-8af68.appspot.com',
+        messagingSenderId: '531535470897',
+        appId: '1:531535470897:web:0ceffff0c3d9b351705010',
+        measurementId: 'G-N0M482NVR7',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 
     <meta name="theme-color" content="#000000" />
     <meta
