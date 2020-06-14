@@ -30,10 +30,17 @@ class SignUpFormBase extends Component {
 
   handleSubmit = event => {
     const { username, email, passwordOne } = this.state;
+    const { firebase } = this.props;
 
-    this.props.firebase
+    firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
+        return firebase.user(authUser.user.uid).set({
+          username,
+          email,
+        });
+      })
+      .then(() => {
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.HOME);
       })
@@ -68,9 +75,6 @@ class SignUpFormBase extends Component {
             type='text'
             placeholder='Enter username'
           />
-          <Form.Text className='text-muted'>
-            We'll never share your email with anyone else.
-          </Form.Text>
         </Form.Group>
         <Form.Group controlId='formBasicEmail'>
           <Form.Label>Email address</Form.Label>
@@ -109,7 +113,6 @@ class SignUpFormBase extends Component {
         <Button variant='primary' type='submit' disabled={isInvalid}>
           Sign Up
         </Button>
-
         {error && <p>{error.message}</p>}
       </Form>
     );

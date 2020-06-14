@@ -1,44 +1,44 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { AuthUserContext } from '../Session';
 import SignOutButton from '../SignOut';
-
+import { Navbar, Nav } from 'react-bootstrap';
 import * as ROUTES from '../../constants/routes';
 
 const Navigation = () => (
-  <div>
-    <AuthUserContext.Consumer>
-      {authUser => (authUser ? <NavigationAuth /> : <NavigationNonAuth />)}
-    </AuthUserContext.Consumer>
-  </div>
+  <AuthUserContext.Consumer>
+    {authUser => (
+      <Navbar bg='light' expand='lg'>
+        <Navbar.Brand href='#home'>Firebase Template</Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='mr-auto'>
+            {authUser ? <NavigationAuth /> : <NavigationNonAuth />}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    )}
+  </AuthUserContext.Consumer>
 );
 
 const NavigationAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
-    </li>
-    <li>
-      <SignOutButton />
-    </li>
-  </ul>
+  <>
+    <Nav.Link href={ROUTES.LANDING}>Landing</Nav.Link>
+
+    <Nav.Link href={ROUTES.HOME}>Home</Nav.Link>
+
+    <Nav.Link href={ROUTES.ACCOUNT}>Account</Nav.Link>
+
+    <SignOutButton />
+  </>
 );
 
 const NavigationNonAuth = () => (
-  <ul>
-    <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-    </li>
-  </ul>
+  <>
+    <Nav.Link href={ROUTES.LANDING}>Landing</Nav.Link>
+
+    <Nav.Link href={ROUTES.SIGN_IN}>Sign In</Nav.Link>
+  </>
 );
 
 export default Navigation;

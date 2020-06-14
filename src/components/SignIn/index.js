@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+import { Button, Form } from 'react-bootstrap';
 
 import { SignUpLink } from '../SignUp';
 import { withFirebase } from '../Firebase';
@@ -56,27 +57,29 @@ class SignInFormBase extends Component {
     const isInvalid = password === '' || email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
-        <input
+      <Form onSubmit={this.onSubmit}>
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
           name='email'
           value={email}
           onChange={this.onChange}
           type='text'
           placeholder='Email Address'
         />
-        <input
+        <Form.Label>Password</Form.Label>
+        <Form.Control
           name='password'
           value={password}
           onChange={this.onChange}
           type='password'
           placeholder='Password'
         />
-        <button disabled={isInvalid} type='submit'>
+        <Button disabled={isInvalid} type='submit'>
           Sign In
-        </button>
+        </Button>
 
         {error && <p>{error.message}</p>}
-      </form>
+      </Form>
     );
   }
 }
