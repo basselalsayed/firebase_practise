@@ -1,6 +1,6 @@
 # Outline
 
-This repository can be used as a boilerplate for a react and firebase project. It offers easy to customise screens built with [bootstrap](https://react-bootstrap.github.io/) and higher order component architecture for easy integration with additional features .
+This repository can be used as a boilerplate for a react and firebase project. It offers easy to customise screens built with [bootstrap](https://react-bootstrap.github.io/) and higher order component architecture for easy integration with additional features.
 
 Includes:
 * Signup (with cloud function firestore user object creatiion)
@@ -13,7 +13,7 @@ Includes:
 * Fork this repository and clone it to your local machine 
 * Install dependencies with `yarn`
 * Create an env file at the root with `touch .env`
-* Set up your own [firebase project](firebase.google.com)
+* Set up your own [firebase project](https://firebase.google.com/)
 * Install [Firebase CLI](https://firebase.google.com/docs/cli) 
 * In the firebase web console, navigate to settings > Project Settings and set up a web app
 * Select the config radio button and copy the data into the .env file as below, replacing `12345678foobar` :
