@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { withAuthorization } from '../Session';
-import { FirebaseContext } from '../Firebase';
+
 import _ from 'underscore';
 
 const AdminPage = props => {
