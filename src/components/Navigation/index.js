@@ -29,6 +29,8 @@ const NavigationAuth = () => (
 
     <Nav.Link href={ROUTES.ACCOUNT}>Account</Nav.Link>
 
+    <Nav.Link href={ROUTES.ADMIN}>Admin</Nav.Link>
+
     <SignOutButton />
   </>
 );
