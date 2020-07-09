@@ -10,7 +10,7 @@ import * as ROUTES from '../../constants/routes';
 const SignUpPage = () => (
   <div>
     <h1>SignUp</h1>
-    <SignUpForm />}
+    <SignUpForm />
   </div>
 );
 
@@ -32,10 +32,12 @@ class SignUpFormBase extends Component {
     const { username, email, passwordOne } = this.state;
     const { firebase } = this.props;
 
+    event.preventDefault();
+
     firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
-        return firebase.user(authUser.user.uid).set({
+        return firebase.user(authUser.uid).set({
           username,
           email,
         });
@@ -47,8 +49,6 @@ class SignUpFormBase extends Component {
       .catch(error => {
         this.setState({ error });
       });
-
-    event.preventDefault();
   };
 
   onChange = e => {

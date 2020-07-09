@@ -4,18 +4,18 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 exports.sendMessage = functions.firestore
-  .document(`products/{productId}`)
+  .document(`users/{userId}`)
   .onCreate((snap, context) => {
-    const id = context.params.productId;
+    const id = context.params.userId;
 
     const data = snap.data();
 
     return admin
       .firestore()
-      .collection('products')
+      .collection('users')
       .doc(id)
       .set(
-        { message: `Nice ${data.name} - from functions` },
+        { message: `Hello ${data.username} - from functions` },
         {
           merge: true,
         },
