@@ -17,7 +17,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "recompose": "^0.30.0",
-    "underscore": "^1.10.2"
+    "underscore": "^1.12.1"
   },
   "scripts": {
     "start": "react-scripts start",
